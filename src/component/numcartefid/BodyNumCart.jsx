@@ -9,9 +9,7 @@ import Numero from "./Numero";
 export default function BodyNumCart() {
   const [cardNumber, setCardNumber] = useState("");
   const navigate = useNavigate();
-  React.useEffect(() => {
-    console.log({ cardNumber });
-  }, [cardNumber]);
+  React.useEffect(() => {}, [cardNumber]);
   const validerCarte = async () => {
     console.log("Numéro de carte soumis pour validation:", cardNumber);
     try {
