@@ -1,0 +1,96 @@
+.numpadcontainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  
+  border: 1px ;
+  box-shadow: 5px 5px 5px 5px #00000029;
+  padding: 25px;
+  margin : 0px;
+}
+
+.numInput {
+  height: 3.625rem;
+  width: 20.125rem;
+  margin: 10px;
+  border-bottom: 1px solid #8a8a8a;
+  text-align: center;
+  font-size: 30px;
+  
+}
+
+.numpad {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  width: 22.5rem;
+  height: 22.5rem;
+}
+
+.numpad button {
+  border: 1px solid #c7c7c7;
+  border-radius: 9px;
+  background-color: white;
+  font-size: 30px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.numpad button:hover {
+  background-color: #eee;
+}
+
+
+
+ 
+.container{
+  width: 50%;
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ 
+}
+.calculator{
+  padding: 20px;
+  border-radius: 10px;
+  background-color: rgb(114, 21, 21);
+}
+form input{
+  
+  outline: 0;
+  width: 60px;
+  height: 60px;
+  font-size: 16px;
+  background-color: white;
+  margin: 2px;
+  border-radius: 10px;
+  color: black;
+  font-weight: bolder;
+  cursor: pointer;
+}
+form input[type="button"]:hover {
+  background-color: rgb(29, 155, 155);
+}
+form .display{
+  display: flex;
+  justify-content: flex-end;
+  margin: 5px 0px 15px 0px;
+   padding: 4px 0;
+  
+}
+form .display input{
+  text-align: right;
+  flex: 1;
+  font-size: 40px;
+  padding: 5px 10px;
+  background-color:  white;
+  border: 2px solid black;
+}
+
+form input.touch{
+  grid-row: 3/ span 2;
+  grid-column: 5 / 4;
+  
+}

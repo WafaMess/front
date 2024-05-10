@@ -1,0 +1,97 @@
+/* page 11 */
+/* Layout Properties */
+.gris{
+   
+  
+  /* width: 1024px;
+  height: 768px; */
+  /* UI Properties */
+  background: #9D9D9C 0% 0% no-repeat padding-box;
+  opacity: 1;
+  
+  }
+  .blanc{
+      padding-top: 1%;
+      /* Layout Properties */
+   top: 75px;
+   left: 76px;
+   width: 879px;
+   height: 620px;
+      /* UI Properties */
+   background: #FFFFFF 0% 0% no-repeat padding-box;
+  opacity: 1;
+  }
+    
+  .numpadcontainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 26.5rem;
+    height: 26.5rem;
+    border: 1px ;
+    box-shadow: 5px 5px 5px 5px #00000029;
+    padding: 25px;
+    margin : 0px;
+  }
+  
+  .numInput {
+    height: 3.625rem;
+    width: 20.125rem;
+    margin: 10px;
+    border-bottom: 1px solid #8a8a8a;
+    text-align: center;
+    font-size: 30px;
+  }
+  
+  .numpad {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    width: 22.5rem;
+    height: 22.5rem;
+  }
+  
+  .numpad button {
+    border: 1px solid #c7c7c7;
+    border-radius: 9px;
+    background-color: white;
+    font-size: 30px;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .numpad button:hover {
+    background-color: #eee;
+  }
+    
+    
+    .logo{
+       
+        margin: 5%;
+        margin-top: 10px;
+        top: 105px;
+       left: 450px;
+      width: 120px;
+      height: 66px;
+      background: black 0% 0% no-repeat padding-box;
+      opacity: 1;
+      
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .pargh{
+        margin-top: 10px;
+        /* Layout Properties */
+       top: 199px;
+       left: 223px;
+   
+      width: 578px;
+      height: 53px;
+      /* UI Properties */
+     text-align: center;
+     font: normal normal 600 40px/53px Segoe UI;
+     letter-spacing: 0px;
+      color: #000000;
+      opacity: 1;
+    }

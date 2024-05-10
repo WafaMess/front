@@ -1,0 +1,21 @@
+.gris{
+   
+  
+    width: 1024px;
+    height: 768px;
+    /* UI Properties */
+    background: #9D9D9C 0% 0% no-repeat padding-box;
+    opacity: 1;
+    
+    }
+    .blanc{
+        padding-top: 1%;
+        /* Layout Properties */
+     top: 75px;
+     left: 76px;
+     width: 879px;
+     height: 620px;
+        /* UI Properties */
+     background: #FFFFFF 0% 0% no-repeat padding-box;
+    opacity: 1;
+    }

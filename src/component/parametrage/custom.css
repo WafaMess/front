@@ -1,0 +1,16 @@
+.custom-buttons-grid button {
+    display: inline-block; /* Configure les boutons pour qu'ils soient affichés en ligne */
+  }
+  
+
+  .custom-buttons-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 colonnes égales */
+    gap: 5px; /* Espacement entre les boutons */
+  }
+  
+  .custom-buttons-grid button {
+    width: 100%; /* Largeur des boutons */
+  }
+ 
+  
