@@ -32,6 +32,7 @@ const BodyPayer1 = ({ isRadioActive, handleRadioChange }) => {
         [barcode]: (prevState[barcode] || 0) + 1, // Incrémente la quantité existante ou initialise à 1 si elle n'existe pas encore
       }));
       // Vérifie si le produit existe déjà dans l'état 'cods'
+
       const existingProductIndex = cods.findIndex(
         (cod) => cod.codebare === barcode
       );
@@ -56,6 +57,8 @@ const BodyPayer1 = ({ isRadioActive, handleRadioChange }) => {
       }
     } catch (error) {
       console.error("Error fetching data:", error);
+      // Affiche une alerte avec un message simplifié
+      alert("Article non trouvé");
     }
   };
   // ... (autres états et fonctions)
