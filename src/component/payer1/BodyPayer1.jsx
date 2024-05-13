@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-
+import { useSelector } from "react-redux";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Button from "react-bootstrap/Button";
 import { Image } from "react-bootstrap";
@@ -11,6 +11,8 @@ import BarcodeScanner from "../../_components/BarcodeScanner";
 import Productfinder from "../../_components/apis/Productfinder";
 
 const BodyPayer1 = ({ isRadioActive, handleRadioChange }) => {
+  // Utilisez useSelector pour accéder à l'état du panier
+  const cart = useSelector((state) => state.cart);
   const handleSearchClick = () => {
     console.log("isRadioActive:", isRadioActive); // Vérifier la valeur de isRadioActive
     if (isRadioActive) {
@@ -289,6 +291,20 @@ const BodyPayer1 = ({ isRadioActive, handleRadioChange }) => {
                   </thead>
 
                   <tbody>
+                    {cart.items && cart.items.length > 0 ? (
+                      cart.items.map((item) => (
+                        <tr key={item.id}>
+                          <td>{item.nompr}</td>
+                          <td>{item.prixl}</td>
+                          <td>{item.qte}</td>
+                          <td>{item.prixl * item.qte}</td>
+                        </tr>
+                      ))
+                    ) : (
+                      <tr>
+                        <td colSpan="4">Aucun produit dans le panier.</td>
+                      </tr>
+                    )}
                     {cods.map((cod, index) => {
                       // Ajoutez une classe conditionnelle pour l'élément sélectionné
                       const isSelected = selectedBarcode === cod.codebare;

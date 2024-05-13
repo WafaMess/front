@@ -2,13 +2,22 @@ import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "../Header";
 import { Modal, Button } from "react-bootstrap";
+import { useDispatch } from "react-redux";
+import { addToCart } from "./../cartActions";
 
 import NewKeyboard from "./../../_components/NewKeyboard";
 
 export default function BodyFind() {
   const [showPopup, setShowPopup] = useState(false);
   const [productInfo, setProductInfo] = useState(null);
+  const dispatch = useDispatch();
 
+  // Fonction pour gérer l'ajout au panier
+  const handleAddToCart = (product) => {
+    console.log("Ajout au panier", product); // Ajoutez ceci pour le débogage
+    dispatch(addToCart(product));
+    setShowPopup(false); // Assuming you want to close the popup after adding to cart
+  };
   const handleEnterPress = async (inputValue) => {
     try {
       const response = await fetch(`http://localhost:5000/db/${inputValue}`);
@@ -47,7 +56,10 @@ export default function BodyFind() {
                 Quantité: <input type="number" defaultValue={productInfo.qte} />
               </p>
               <div className="d-flex justify-content-center">
-                <Button className="btn btn-primary mt-3">
+                <Button
+                  className="btn btn-primary mt-3"
+                  onClick={() => handleAddToCart(productInfo)} // Ajout de l'événement onClick
+                >
                   Ajouter au panier
                 </Button>
               </div>
