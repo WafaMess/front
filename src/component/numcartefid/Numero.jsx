@@ -6,6 +6,7 @@ export default function Numero({ onValidate, setCardNumber }) {
   React.useEffect(() => {
     setCardNumber(value);
   }, [value, setCardNumber]);
+
   return (
     <div className="container">
       <div className="calculator" style={{ backgroundColor: "green" }}>
