@@ -30,10 +30,10 @@ export default function BodyNumTel() {
           alert(data.message);
         }
       } else {
-        alert(" numéro de la carte est incorrcte.");
+        alert(" numéro de telephone est incorrcte.");
       }
     } catch (error) {
-      alert("Erreur lors de la vérification du numéro de la carte.");
+      alert("Erreur lors de la vérification du numéro de telephone.");
     }
   };
   return (
