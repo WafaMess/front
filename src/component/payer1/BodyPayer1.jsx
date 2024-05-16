@@ -7,7 +7,8 @@ import { Link } from "react-router-dom";
 import Table from "react-bootstrap/Table";
 import Header from "../Header";
 import BarcodeScanner from "../../_components/BarcodeScanner";
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Productfinder from "../../_components/apis/Productfinder";
 
 const BodyPayer1 = ({ isRadioActive, handleRadioChange }) => {
@@ -18,7 +19,7 @@ const BodyPayer1 = ({ isRadioActive, handleRadioChange }) => {
     if (isRadioActive) {
       handleRadioChange(false);
     } else {
-      alert("Recherche pas disponible");
+      toast.error("Recherche pas disponible");
     }
   };
   const searchIndex = JSON.parse(
@@ -67,7 +68,7 @@ const BodyPayer1 = ({ isRadioActive, handleRadioChange }) => {
     } catch (error) {
       console.error("Error fetching data:", error);
       // Affiche une alerte avec un message simplifié
-      alert("Article non trouvé");
+      toast.error("Article non trouvé");
     }
   };
   // ... (autres états et fonctions)
@@ -221,6 +222,7 @@ const BodyPayer1 = ({ isRadioActive, handleRadioChange }) => {
                     //Bouton pour supprimer l'article sélectionné
                     onClick={removeSelectedScannedItem}
                   >
+                    <ToastContainer />
                     <Image
                       src="/delete (3).svg"
                       className="rounded mx-auto d-block"
