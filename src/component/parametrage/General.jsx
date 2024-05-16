@@ -50,11 +50,11 @@ export default function Options() {
             <div className="card-body ">
               <h5 className="card-text ">Ecran d'acceuil</h5>
               <div className="form-check form-switch">
-                <input
+                {/* <input
                   className="form-check-input"
                   type="checkbox"
                   id="flexSwitchCheckDefault"
-                />
+                /> */}
               </div>
               <div className="row">
                 <div className="col-12">
@@ -114,11 +114,11 @@ export default function Options() {
               <h5 className="card-text ">Mode de réglement</h5>
 
               <div className="form-check form-switch">
-                <input
+                {/* <input
                   className="form-check-input"
                   type="checkbox"
                   id="flexSwitchCheckDefault"
-                />
+                /> */}
               </div>
 
               <div className="row">
@@ -206,7 +206,9 @@ export default function Options() {
       >
         <Button variant="outline-secondary">Maintenance</Button>
         <Button variant="outline-danger">Réduire Borne Sco</Button>
-        <Button variant="danger">Fermer Borne Sco</Button>
+        <Button as={Link} to="/login" variant="danger">
+          Fermer Borne Sco
+        </Button>
       </div>
     </div>
   );

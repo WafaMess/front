@@ -3,12 +3,15 @@ import Button from "react-bootstrap/Button";
 import Image from "react-bootstrap/Image";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Header from "../Header";
 import Numero from "./Numero";
 
 export default function BodyNumCart() {
   const [cardNumber, setCardNumber] = useState("");
   const navigate = useNavigate();
+
   React.useEffect(() => {}, [cardNumber]);
   const validerCarte = async () => {
     console.log("Numéro de carte soumis pour validation:", cardNumber);
@@ -25,15 +28,16 @@ export default function BodyNumCart() {
 
       if (response.ok) {
         if (data.status === "success") {
+          toast.success("Carte validée avec succès!");
           navigate("/Solde");
         } else {
-          alert(data.message);
+          toast.error(data.message);
         }
       } else {
-        alert(" numéro de la carte est incorrcte.");
+        toast.error(" numéro de la carte est incorrcte.");
       }
     } catch (error) {
-      alert("Erreur lors de la vérification du numéro de la carte.");
+      toast.error("Erreur lors de la vérification du numéro de la carte.");
     }
   };
   return (
@@ -73,6 +77,7 @@ export default function BodyNumCart() {
         <Button type="button" variant="light mx-2">
           Retour
         </Button>
+        <ToastContainer />
         <Button type="button" variant="dark" onClick={validerCarte}>
           Valider
         </Button>

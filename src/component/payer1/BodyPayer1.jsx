@@ -21,6 +21,13 @@ const BodyPayer1 = ({ isRadioActive, handleRadioChange }) => {
       alert("Recherche pas disponible");
     }
   };
+  const searchIndex = JSON.parse(
+    window.localStorage.getItem("searchProd") | "{}"
+  );
+  React.useEffect(() => {
+    //setCods([...searchIndex]);
+    console.log({ searchIndex });
+  }, [searchIndex]);
   const [cods, setCods] = React.useState([]);
   const [productQte, setProductQte] = React.useState([]);
   useEffect(() => {

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button, Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
@@ -6,40 +6,40 @@ import Calcule from "./Calcule";
 import "./style.css";
 
 export default function BodyCodePostal() {
-  const [codePostal, setCodePostal] = useState("");
+  // const [codePostal, setCodePostal] = useState("");
 
-  const handleConfirmClick = async () => {
-    if (!codePostal) {
-      console.error("Le code postal est vide.");
-      return;
-    }
+  // const handleConfirmClick = async () => {
+  //   if (!codePostal) {
+  //     console.error("Le code postal est vide.");
+  //     return;
+  //   }
 
-    try {
-      const response = await fetch(
-        "http://localhost:5000/enregistrer-code-postal",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ cpcl: codePostal }),
-        }
-      );
+  //   try {
+  //     const response = await fetch(
+  //       "http://localhost:5000/enregistrer-code-postal",
+  //       {
+  //         method: "POST",
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //         },
+  //         body: JSON.stringify({ cpcl: codePostal }),
+  //       }
+  //     );
 
-      if (!response.ok) {
-        throw new Error(`Erreur HTTP: ${response.status}`);
-      }
+  //     if (!response.ok) {
+  //       throw new Error(`Erreur HTTP: ${response.status}`);
+  //     }
 
-      const data = await response.json();
-      console.log(data.message);
-    } catch (error) {
-      console.error("Erreur lors de l'enregistrement du code postal:", error);
-    }
-  };
+  //     const data = await response.json();
+  //     console.log(data.message);
+  //   } catch (error) {
+  //     console.error("Erreur lors de l'enregistrement du code postal:", error);
+  //   }
+  // };
 
-  const handleChange = (e) => {
-    setCodePostal(e.target.value);
-  };
+  // const handleChange = (e) => {
+  //   setCodePostal(e.target.value);
+  // };
 
   return (
     <div className="gris mt-3">
@@ -52,7 +52,8 @@ export default function BodyCodePostal() {
           Veuillez saisir votre code postal
         </h1>
         <div className=" d-flex justify-content-center">
-          <Calcule value={codePostal} onChange={handleChange} />
+          {/* <Calcule value={codePostal} onChange={handleChange} /> */}
+          <Calcule />
         </div>
         <div className="d-flex justify-content-center mt-2">
           <Button
@@ -66,7 +67,7 @@ export default function BodyCodePostal() {
           <Button
             variant="dark"
             className="butconf"
-            onClick={handleConfirmClick}
+            // onClick={handleConfirmClick}
           >
             Confirmer
           </Button>

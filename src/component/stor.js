@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 // Importez les outils nécessaires de Redux
-
+//import cartSlice from "./cartSlice";
 import cartReducer from "./cartActions";
 
 /// Combinez les réducteurs

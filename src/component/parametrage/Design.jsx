@@ -155,7 +155,9 @@ export default function Design() {
       >
         <Button variant="outline-secondary">Maintenance</Button>
         <Button variant="outline-danger">Réduire Borne Sco</Button>
-        <Button variant="danger">Fermer Borne Sco</Button>
+        <Button as={Link} to="/login" variant="danger">
+          Fermer Borne Sco
+        </Button>
       </div>
     </div>
   );

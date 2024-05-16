@@ -9,7 +9,7 @@ export default function Options({ isRadioActive, handleRadioChange }) {
   // Gérez le changement de l'état du bouton radio
   //const handleRadioChange = (event) => {
   // setIsRadioActive(event.target.checked);
-  // };
+  //};
   return (
     <div className="card d-flex  " style={{ height: "90vh", width: "120vh" }}>
       <nav className="navbar navbar-dark bg-dark">
@@ -56,17 +56,11 @@ export default function Options({ isRadioActive, handleRadioChange }) {
             <div className="card-body ">
               <h5 className="card-text ">Fildélité</h5>
               <div className="form-check form-switch">
-                <input
+                {/* <input
                   className="form-check-input"
                   type="checkbox"
                   id="flexSwitchCheckDefault"
-                />
-                {/* <label
-                  className="form-check-label"
-                  for="flexSwitchCheckDefault"
-                >
-                  oui
-                </label> */}
+                /> */}
               </div>
               <div className="row">
                 <div className="col-12">
@@ -80,12 +74,6 @@ export default function Options({ isRadioActive, handleRadioChange }) {
                         type="checkbox"
                         id="flexSwitchCheckDefault"
                       />
-                      {/* <label
-                        className="form-check-label"
-                        for="flexSwitchCheckDefault"
-                      >
-                        oui
-                      </label> */}
                     </div>
                   </div>
                 </div>
@@ -102,12 +90,6 @@ export default function Options({ isRadioActive, handleRadioChange }) {
                         type="checkbox"
                         id="flexSwitchCheckDefault"
                       />
-                      {/* <label
-                        className="form-check-label"
-                        for="flexSwitchCheckDefault"
-                      >
-                        oui
-                      </label> */}
                     </div>
                   </div>
                 </div>
@@ -138,11 +120,11 @@ export default function Options({ isRadioActive, handleRadioChange }) {
               <h5 className="card-text ">Code Promo</h5>
 
               <div className="form-check form-switch">
-                <input
+                {/* <input
                   className="form-check-input"
                   type="checkbox"
                   id="flexSwitchCheckDefault"
-                />
+                /> */}
               </div>
 
               <div className="row">
@@ -187,11 +169,11 @@ export default function Options({ isRadioActive, handleRadioChange }) {
             <div className="card-body ">
               <h5 className="card-text ">Code postal</h5>
               <div className="form-check form-switch">
-                <input
+                {/* <input
                   className="form-check-input"
                   type="checkbox"
                   id="flexSwitchCheckDefault"
-                />
+                /> */}
               </div>
               <div className="row">
                 <div className="col-12">
@@ -205,12 +187,6 @@ export default function Options({ isRadioActive, handleRadioChange }) {
                         type="checkbox"
                         id="flexSwitchCheckDefault"
                       />
-                      {/* <label
-                        className="form-check-label"
-                        for="flexSwitchCheckDefault"
-                      >
-                        oui
-                      </label> */}
                     </div>
                   </div>
                 </div>
@@ -227,12 +203,6 @@ export default function Options({ isRadioActive, handleRadioChange }) {
                         type="checkbox"
                         id="flexSwitchCheckDefault"
                       />
-                      {/* <label
-                        className="form-check-label"
-                        for="flexSwitchCheckDefault"
-                      >
-                        oui
-                      </label> */}
                     </div>
                   </div>
                 </div>
@@ -273,7 +243,9 @@ export default function Options({ isRadioActive, handleRadioChange }) {
       >
         <Button variant="outline-secondary">Maintenance</Button>
         <Button variant="outline-danger">Réduire Borne Sco</Button>
-        <Button variant="danger">Fermer Borne Sco</Button>
+        <Button as={Link} to="/login" variant="danger">
+          Fermer Borne Sco
+        </Button>
       </div>
     </div>
   );
