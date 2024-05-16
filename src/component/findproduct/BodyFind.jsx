@@ -13,13 +13,15 @@ export default function BodyFind() {
   const [showPopup, setShowPopup] = useState(false);
   const [productInfo, setProductInfo] = useState(null);
   const dispatch = useDispatch();
+  const [quantity, setQuantity] = useState(1); // Ajout d'un état pour la quantité avec une valeur initiale de 1
 
   // Fonction pour gérer l'ajout au panier
   const handleAddToCart = (product) => {
-    console.log("Ajout au panier", product); // Ajoutez ceci pour le débogage
-    dispatch(addToCart(product));
+    console.log("Ajout au panier", product, "Quantité:", quantity); // Ajoutez ceci pour le débogage
+    dispatch(addToCart({ ...product, quantity })); // Ajoutez la quantité au produit avant de l'envoyer
     setShowPopup(false); // Assuming you want to close the popup after adding to cart
   };
+
   const handleEnterPress = async (inputValue) => {
     try {
       const response = await fetch(`http://localhost:5000/db/${inputValue}`);
@@ -57,13 +59,18 @@ export default function BodyFind() {
               <p>Désignation: {productInfo.nompr}</p>
               <p>Prix Unitaire: {productInfo.prixl}</p>
               <p>
-                Quantité: <input type="number" defaultValue={productInfo.qte} />
+                Quantité:{" "}
+                <input
+                  type="number"
+                  value={quantity}
+                  onChange={(e) => setQuantity(e.target.value)}
+                />
               </p>
               <div className="d-flex justify-content-center">
                 <Button
                   className="btn btn-primary mt-3"
                   onClick={() => {
-                    handleAddToCart(productInfo);
+                    handleAddToCart(productInfo, quantity);
                     navigate("/payer1");
                   }} // Ajout de l'événement onClick
                 >

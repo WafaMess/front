@@ -23,11 +23,20 @@ const BodyPayer1 = ({ isRadioActive, handleRadioChange }) => {
     }
   };
   const searchIndex = JSON.parse(
-    window.localStorage.getItem("searchProd") | "{}"
+    window.localStorage.getItem("searchProd") || "{}"
   );
+
   React.useEffect(() => {
     //setCods([...searchIndex]);
     console.log({ searchIndex });
+    const ElIndexed = JSON.parse(
+      window.localStorage.getItem("searchProd") || "{}"
+    );
+    if (cods.map((x) => x.codebare).includes(ElIndexed.codebare) === false) {
+      setCods([...cods, ElIndexed]);
+    }
+
+    console.log(ElIndexed);
   }, [searchIndex]);
   const [cods, setCods] = React.useState([]);
   const [productQte, setProductQte] = React.useState([]);
@@ -49,6 +58,7 @@ const BodyPayer1 = ({ isRadioActive, handleRadioChange }) => {
       if (existingProductIndex !== -1) {
         // Met à jour la quantité du produit existant
         const newCods = [...cods];
+
         newCods[existingProductIndex] = {
           ...newCods[existingProductIndex],
           qte: productQte[barcode] + 1,
@@ -222,7 +232,6 @@ const BodyPayer1 = ({ isRadioActive, handleRadioChange }) => {
                     //Bouton pour supprimer l'article sélectionné
                     onClick={removeSelectedScannedItem}
                   >
-                    <ToastContainer />
                     <Image
                       src="/delete (3).svg"
                       className="rounded mx-auto d-block"
@@ -232,7 +241,7 @@ const BodyPayer1 = ({ isRadioActive, handleRadioChange }) => {
                   </Button>
                 </div>
               </div>
-
+              <ToastContainer />
               <div className="row mt-1 mb-1">
                 <div className="col-6">
                   <Button
