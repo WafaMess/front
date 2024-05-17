@@ -71,7 +71,7 @@ export default function BodyFind() {
                   className="btn btn-primary mt-3"
                   onClick={() => {
                     handleAddToCart(productInfo, quantity);
-                    navigate("/payer1");
+                    navigate("/payer2");
                   }} // Ajout de l'événement onClick
                 >
                   Ajouter au panier

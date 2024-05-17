@@ -36,7 +36,7 @@ export default function MainRoutes() {
   return (
     <Routes>
       <Route path="/signin" element={<SignIn />} />
-      <Route path="/Payer1" element={<Payer1 />} /> {/*1/15 */}
+      {/*<Route path="/Payer1" element={<Payer1 />} /> 1/15 */}
       <Route path="/Payer2" element={<Payer2 />} /> {/*2/15 */}
       <Route path="/interface" element={<Interface />} /> {/*3/15 */}
       <Route path="/Saisircod" element={<SaisirCode />} /> {/*4/15 */}
@@ -53,7 +53,7 @@ export default function MainRoutes() {
       <Route path="/NumTel" element={<NumTel />} /> {/*15/15 */}
       {/* <Route path="/Manager" element={<Manager />} /> 1/9 */}
       {/*<Route path="/RecherProd" element={<RecherProd />} /> 2/9 */}
-      {/*<Route path="/FindProduct" element={<FindProduct />} /> 3/9 */}
+      <Route path="/FindProduct" element={<FindProduct />} />
       {/*<Route path="/Promo" element={<Promo />} /> 4/9 */}
       {/*<Route path="/SaisirManager" element={<SaisirManager />} /> 5/9 */}
       {/*<Route path="/PaieManager" element={<PaieManager />} /> 6/9 */}
