@@ -12,6 +12,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Productfinder from "../../_components/apis/Productfinder";
 
 const BodyPayer2 = ({ isRadioActive, handleRadioChange }) => {
+  const [selectedImage, setSelectedImage] = React.useState(null); // Ajout d'un nouvel état pour l'URL de l'image
   // Utilisez useSelector pour accéder à l'état du panier
   const cart = useSelector((state) => state.cart);
   const handleSearchClick = () => {
@@ -71,6 +72,8 @@ const BodyPayer2 = ({ isRadioActive, handleRadioChange }) => {
           // Ajoutez le produit scanné à l'état 'cods'
           setCods((prevCods) => [...prevCods, { ...response.data, qte: 1 }]);
           // Définit l'URL de l'image du produit
+          // Définit l'URL de l'image du produit
+          setSelectedImage(response.data.imageUrl); // Assurez-vous que 'imageUrl' est la clé correcte pour l'URL de l'image dans votre réponse
         } else {
           console.error("Produit non trouvé");
         }
@@ -192,14 +195,15 @@ const BodyPayer2 = ({ isRadioActive, handleRadioChange }) => {
                   className="card"
                   style={{ width: "18rem", height: "15rem" }}
                 >
-                  {" "}
-                  <BarcodeScanner
-                    onBarcodeScan={(e) => {
-                      console.log("ping: " + e);
-                      onBarcodeScan(e);
-                    }}
-                  />
+                  {selectedImage && <img src={selectedImage} alt="produit" />}{" "}
+                  {/* Affiche l'image si selectedImage n'est pas null */}
                 </div>
+                <BarcodeScanner
+                  onBarcodeScan={(e) => {
+                    console.log("ping: " + e);
+                    onBarcodeScan(e);
+                  }}
+                />
               </div>
               <div className="row mt-1 mb-1">
                 <div className="col-12">
