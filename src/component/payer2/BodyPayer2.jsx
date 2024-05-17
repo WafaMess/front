@@ -364,18 +364,7 @@ const BodyPayer2 = ({ isRadioActive, handleRadioChange }) => {
                       <td>1</td>
                       <td>3.00</td>
                     </tr>
-                    <tr>
-                      <td>oasis tropical canette</td>
-                      <td>1.50</td>
-                      <td>1</td>
-                      <td>1.50</td>
-                    </tr>
-                    <tr>
-                      <td>sac</td>
-                      <td>0.20</td>
-                      <td>1</td>
-                      <td>0.20</td>
-                    </tr>
+
                     <tr>
                       <td colSpan={3}>Promotion 15%</td>
                       <td>-0.50</td>
@@ -401,12 +390,19 @@ const BodyPayer2 = ({ isRadioActive, handleRadioChange }) => {
             </div>
 
             <div className="col-12">
+              <ToastContainer />
               <Button
                 variant="dark pt-2 mb-2 "
                 className="col-12 text-center"
                 style={{ width: "20rem", fontSize: "17px" }}
               >
-                <span>Payer</span>
+                <span>
+                  Payer&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  &nbsp;&nbsp;
+                </span>{" "}
                 <span>{calculateTotal().toFixed(2)}</span>
               </Button>
             </div>

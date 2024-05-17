@@ -13,17 +13,11 @@ import CodePostal from "./component/codepostal";
 import ModePaiement from "./component/modepaiement/ModePaiement";
 import NumTel from "./component/numtel/NumTel";
 import Payer2 from "./component/payer2/Payer2";
-import Payer1 from "./component/payer1/Payer1";
+
 import Payer3 from "./component/payer3/Payer3";
-import Manager from "./component/manager/Manager";
-import Modif from "./component/modif/Modif";
-import Promo from "./component/promo/Promo";
-import PaieManager from "./component/paiemanager/PaieManager";
-import Montant from "./component/montant/Montant";
-import RecherProd from "./component/recherprod/RecherProd";
+
 import FindProduct from "./component/findproduct/FindProduct";
-import SaisirManager from "./component/saisirmanager/SaisirManager";
-import ManagerPaie from "./component/managerpaie/ManagerPaie";
+
 import Impremente from "./component/parametrage/Impremente";
 import General from "./component/parametrage/General";
 import Design from "./component/parametrage/Design";
