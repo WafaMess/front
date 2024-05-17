@@ -16,9 +16,9 @@ export default function BodyFind() {
   const [quantity, setQuantity] = useState(1); // Ajout d'un état pour la quantité avec une valeur initiale de 1
 
   // Fonction pour gérer l'ajout au panier
-  const handleAddToCart = (product) => {
+  const handleAddToCart = (product, quantity) => {
     console.log("Ajout au panier", product, "Quantité:", quantity); // Ajoutez ceci pour le débogage
-    dispatch(addToCart({ ...product, quantity })); // Ajoutez la quantité au produit avant de l'envoyer
+    dispatch(addToCart({ ...product, quantity: Number(quantity) })); // Ajoutez la quantité au produit avant de l'envoyer
     setShowPopup(false); // Assuming you want to close the popup after adding to cart
   };
 

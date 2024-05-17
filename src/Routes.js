@@ -51,15 +51,15 @@ export default function MainRoutes() {
       <Route path="/SuivezIndica" element={<SuivezIndica />} /> {/*13/15 */}
       <Route path="/merci" element={<Merci />} /> {/*14/15 */}
       <Route path="/NumTel" element={<NumTel />} /> {/*15/15 */}
-      <Route path="/Manager" element={<Manager />} /> {/*1/9 */}
-      <Route path="/RecherProd" element={<RecherProd />} /> {/*2/9 */}
-      <Route path="/FindProduct" element={<FindProduct />} /> {/*3/9 */}
-      <Route path="/Promo" element={<Promo />} /> {/*4/9 */}
-      <Route path="/SaisirManager" element={<SaisirManager />} /> {/*5/9 */}
-      <Route path="/PaieManager" element={<PaieManager />} /> {/*6/9 */}
-      <Route path="/modif" element={<Modif />} /> {/*8/9 */}
-      <Route path="/ManagerPaie" element={<ManagerPaie />} /> {/*7/9 */}
-      <Route path="/Montant" element={<Montant />} /> {/*9/9 */}
+      {/* <Route path="/Manager" element={<Manager />} /> 1/9 */}
+      {/*<Route path="/RecherProd" element={<RecherProd />} /> 2/9 */}
+      {/*<Route path="/FindProduct" element={<FindProduct />} /> 3/9 */}
+      {/*<Route path="/Promo" element={<Promo />} /> 4/9 */}
+      {/*<Route path="/SaisirManager" element={<SaisirManager />} /> 5/9 */}
+      {/*<Route path="/PaieManager" element={<PaieManager />} /> 6/9 */}
+      {/*<Route path="/modif" element={<Modif />} /> 8/9 */}
+      {/*<Route path="/ManagerPaie" element={<ManagerPaie />} /> 7/9 */}
+      {/*<Route path="/Montant" element={<Montant />} /> 9/9 */}
       {/* Add more routes here */}
       <Route path="/login" element={<Login />} />
       <Route path="/modal" element={<Modal />} /> {/*9/9 */}

@@ -13,7 +13,10 @@ const cartReducer = (state = initialState, action) => {
       // Logique pour ajouter au panier
       return {
         ...state,
-        cart: [...state.cart, { ...action.payload, qte: 1 }],
+        cart: [
+          ...state.cart,
+          { ...action.payload, qte: action.payload.quantity },
+        ],
       };
     // console.log(cart);
     // Ajoutez d'autres cas ici
