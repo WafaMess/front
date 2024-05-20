@@ -14,6 +14,11 @@ export default function BodyNumCart() {
 
   React.useEffect(() => {}, [cardNumber]);
   const validerCarte = async () => {
+    // Vérifier si le champ du code postal est vide
+    if (!cardNumber.trim()) {
+      toast.error("Veuillez saisir un Numéro de carte.");
+      return; // Arrêter l'exécution si le champ est vide
+    }
     console.log("Numéro de carte soumis pour validation:", cardNumber);
     try {
       const response = await fetch("http://localhost:5000/verifier-carte", {

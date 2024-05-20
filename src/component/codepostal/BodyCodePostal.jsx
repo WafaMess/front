@@ -12,6 +12,11 @@ export default function BodyCodePostal() {
   const navigate = useNavigate();
   React.useEffect(() => {}, [cardNumber]);
   const validerPostal = async () => {
+    // Vérifier si le champ du code postal est vide
+    if (!cardNumber.trim()) {
+      toast.error("Veuillez saisir un code postal.");
+      return; // Arrêter l'exécution si le champ est vide
+    }
     console.log("Code Postal soumis pour validation:", cardNumber);
     try {
       const response = await fetch(

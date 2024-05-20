@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "../Header";
+
 import { Modal, Button } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { addToCart } from "./../cartActions";
@@ -49,11 +50,13 @@ export default function BodyFind() {
       <NewKeyboard onEnterPress={handleEnterPress} />
       <Modal show={showPopup} onHide={() => setShowPopup(false)}>
         <Modal.Header closeButton>
-          <Modal.Title>Informations du Produit</Modal.Title>
+          <Modal.Title style={{ fontWeight: "bold", textAlign: "center" }}>
+            Informations d'article
+          </Modal.Title>
         </Modal.Header>
         <Modal.Body>
           {productInfo === null ? (
-            <p>Produit non disponible</p>
+            <p>article non disponible</p>
           ) : (
             <div>
               <p>Désignation: {productInfo.nompr}</p>

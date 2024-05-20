@@ -21,6 +21,7 @@
     "react-simple-keyboard": "^3.7.91",
     "react-textfit": "^1.1.1",
     "react-toastify": "^10.0.5",
+    "reactjs-popup": "^2.0.6",
     "redux": "^5.0.1",
     "web-vitals": "^2.1.4"
   },

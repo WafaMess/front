@@ -6,6 +6,9 @@ import { Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Table from "react-bootstrap/Table";
 import Header from "../Header";
+import Popup from "reactjs-popup";
+import "reactjs-popup/dist/index.css";
+import { AiFillAlert } from "react-icons/ai";
 import BarcodeScanner from "../../_components/BarcodeScanner";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -208,18 +211,44 @@ const BodyPayer2 = ({ isRadioActive, handleRadioChange }) => {
 
               <div className="row mt-1 mb-1">
                 <div className="col-12">
-                  <Button
-                    variant="outline-secondary "
-                    className="col-12 text-center"
-                    style={{ width: "18rem", height: "3rem", fontSize: "9px" }}
+                  <Popup
+                    trigger={
+                      <Button
+                        variant="outline-secondary "
+                        className="col-12 text-center"
+                        style={{
+                          width: "18rem",
+                          height: "3rem",
+                          fontSize: "9px",
+                        }}
+                      >
+                        <Image
+                          src="/Groupe 22470.svg"
+                          className="rounded mx-auto d-block"
+                          style={{ width: "20rpx", height: "12px" }}
+                        />
+                        Demande d'assistance
+                      </Button>
+                    }
+                    position="right center"
                   >
-                    <Image
-                      src="/Groupe 22470.svg"
-                      className="rounded mx-auto d-block"
-                      style={{ width: "20rpx", height: "12px" }}
-                    />
-                    Demande d'assistance
-                  </Button>
+                    <div
+                      style={{
+                        textAlign: "center",
+                        marginTop: "10px",
+                      }}
+                    >
+                      <div>
+                        <AiFillAlert
+                          style={{ color: "red", fontSize: "24px" }}
+                        />
+                      </div>
+                      <div style={{ marginTop: "5px" }}>
+                        Un assistant va arriver pour vous aider. Veuillez
+                        patienter.
+                      </div>
+                    </div>
+                  </Popup>
                 </div>
               </div>
               <div className="row mt-1 mb-1">
@@ -397,6 +426,8 @@ const BodyPayer2 = ({ isRadioActive, handleRadioChange }) => {
             <div className="col-12">
               <ToastContainer />
               <Button
+                as={Link}
+                to="/CompteFidelite"
                 variant="dark pt-2 mb-2 "
                 className="col-12 text-center"
                 style={{ width: "20rem", fontSize: "17px" }}

@@ -45,11 +45,11 @@ export default function BodyModPaiement() {
               <Image src="/Groupe 21471.svg" className="rounded float-start " />
             </Link>
           </div>
-          <div className="col-sm">
+          {/* <div className="col-sm">
             <Link to="/SuivezIndica">
               <Image src="/Groupe 21477.svg" className="rounded float-start " />
             </Link>
-          </div>
+          </div> */}
           <div className="col-sm">
             <Link to="/SuivezIndica">
               <Image src="/Groupe 21480.svg" className="rounded float-start " />
@@ -58,9 +58,15 @@ export default function BodyModPaiement() {
         </div>
       </div>
       <div className=" d-flex justify-content-center mt-5">
-        <Button variant="light mx-2 mb-1">Retour</Button>
-        <Button variant="light mx-2 mb-1">Abandonner</Button>
-        <Button variant="secondary mb-1">Continusez ma commande</Button>
+        <Button as={Link} to="/CodePostal" variant="light mx-2 mb-1">
+          Retour
+        </Button>
+        <Button as={Link} to="/" variant="light mx-2 mb-1">
+          Abandonner
+        </Button>
+        <Button as={Link} to="/SuivezIndica" variant="secondary mb-1">
+          Continusez ma commande
+        </Button>
       </div>
     </div>
   );

@@ -2,15 +2,22 @@ import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Image from "react-bootstrap/Image";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Link } from "react-router-dom";
 import Header from "../Header";
 import Numero from "./../../_components/Numero";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
 
 export default function BodyNumTel() {
   const [cardNumber, setCardNumber] = useState("");
   const navigate = useNavigate();
   React.useEffect(() => {}, [cardNumber]);
   const validerTel = async () => {
+    // Vérifier si le champ du code postal est vide
+    if (!cardNumber.trim()) {
+      toast.error("Veuillez saisir un Numéro de téléphone.");
+      return; // Arrêter l'exécution si le champ est vide
+    }
     console.log("Numéro de telephone soumis pour validation:", cardNumber);
     try {
       const response = await fetch("http://localhost:5000/verifier-tel", {
@@ -25,15 +32,16 @@ export default function BodyNumTel() {
 
       if (response.ok) {
         if (data.status === "success") {
+          toast.success("Code Postal validée avec succès!");
           navigate("/Solde");
         } else {
-          alert(data.message);
+          toast.error(data.message);
         }
       } else {
-        alert(" numéro de telephone est incorrcte.");
+        toast.error(" numéro de telephone est incorrcte.");
       }
     } catch (error) {
-      alert("Erreur lors de la vérification du numéro de telephone.");
+      toast.error("Erreur lors de la vérification du numéro de telephone.");
     }
   };
   return (
@@ -79,9 +87,10 @@ export default function BodyNumTel() {
         {/* Passer setCardNumber comme prop */}
       </div>
       <div className="d-flex justify-content-center mt-2">
-        <Button type="button" variant="light mx-2">
+        <Button as={Link} to="/ModeIden" type="button" variant="light mx-2">
           Retour
         </Button>
+        <ToastContainer />
         <Button variant="dark" onClick={validerTel}>
           Valider
         </Button>
