@@ -2,11 +2,9 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "../Header";
-
 import { Modal, Button } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { addToCart } from "./../cartActions";
-// import { addToCart } from "../cartSlice";
 import NewKeyboard from "./../../_components/NewKeyboard";
 
 export default function BodyFind() {

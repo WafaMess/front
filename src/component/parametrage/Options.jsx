@@ -3,13 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-export default function Options({ isRadioActive, handleRadioChange }) {
-  // Ajoutez un état pour suivre si le bouton radio est activé
-  //const [isRadioActive, setIsRadioActive] = useState(isRadioActive);
-  // Gérez le changement de l'état du bouton radio
-  //const handleRadioChange = (event) => {
-  // setIsRadioActive(event.target.checked);
-  //};
+export default function Options() {
   return (
     <div className="card d-flex  " style={{ height: "90vh", width: "120vh" }}>
       <nav className="navbar navbar-dark bg-dark">
@@ -55,13 +49,7 @@ export default function Options({ isRadioActive, handleRadioChange }) {
           <div className="card">
             <div className="card-body ">
               <h5 className="card-text ">Fildélité</h5>
-              <div className="form-check form-switch">
-                {/* <input
-                  className="form-check-input"
-                  type="checkbox"
-                  id="flexSwitchCheckDefault"
-                /> */}
-              </div>
+              <div className="form-check form-switch"></div>
               <div className="row">
                 <div className="col-12">
                   <div className="d-flex align-items">
@@ -119,13 +107,7 @@ export default function Options({ isRadioActive, handleRadioChange }) {
             <div className="card-body">
               <h5 className="card-text ">Code Promo</h5>
 
-              <div className="form-check form-switch">
-                {/* <input
-                  className="form-check-input"
-                  type="checkbox"
-                  id="flexSwitchCheckDefault"
-                /> */}
-              </div>
+              <div className="form-check form-switch"></div>
 
               <div className="row">
                 <div className="col-12">
@@ -168,13 +150,7 @@ export default function Options({ isRadioActive, handleRadioChange }) {
           <div className="card">
             <div className="card-body ">
               <h5 className="card-text ">Code postal</h5>
-              <div className="form-check form-switch">
-                {/* <input
-                  className="form-check-input"
-                  type="checkbox"
-                  id="flexSwitchCheckDefault"
-                /> */}
-              </div>
+              <div className="form-check form-switch"></div>
               <div className="row">
                 <div className="col-12">
                   <div className="d-flex align-items">
@@ -226,8 +202,6 @@ export default function Options({ isRadioActive, handleRadioChange }) {
                         className="form-check-input"
                         type="checkbox"
                         id="flexSwitchCheckDefault"
-                        checked={isRadioActive}
-                        onChange={handleRadioChange}
                       />
                     </div>
                   </div>

@@ -21,7 +21,6 @@ import Options from "./component/parametrage/Options";
 import SignIn from "./component/SignIn";
 import Login from "./component/parametrage/Login";
 import Modal from "./component/parametrage/Modal";
-import ParentComponent from "./component/ParentComponent";
 export default function MainRoutes() {
   return (
     <Routes>
@@ -47,7 +46,6 @@ export default function MainRoutes() {
       <Route path="/general" element={<General />} />
       <Route path="/option" element={<Options />} />
       <Route path="/design" element={<Design />} />
-      <Route path="/parentcomponent" element={<ParentComponent />} />
       {/* <Route path="/Manager" element={<Manager />} /> 1/9 */}
       {/*<Route path="/RecherProd" element={<RecherProd />} /> 2/9 */}
       {/* <Route path="/Payer3" element={<Payer3 />} /> 5/15 */}
