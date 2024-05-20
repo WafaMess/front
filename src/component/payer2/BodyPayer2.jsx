@@ -1,8 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Button from "react-bootstrap/Button";
-import { Image } from "react-bootstrap";
+import { Image, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Table from "react-bootstrap/Table";
 import Header from "../Header";
@@ -14,18 +13,11 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Productfinder from "../../_components/apis/Productfinder";
 
-const BodyPayer2 = ({ isRadioActive, handleRadioChange }) => {
+const BodyPayer2 = () => {
   const [selectedImage, setSelectedImage] = React.useState(null); // Ajout d'un nouvel état pour l'URL de l'image
   // Utilisez useSelector pour accéder à l'état du panier
   const cart = useSelector((state) => state.cart);
-  const handleSearchClick = () => {
-    console.log("isRadioActive:", isRadioActive); // Vérifier la valeur de isRadioActive
-    if (isRadioActive) {
-      handleRadioChange(false);
-    } else {
-      toast.error("Recherche pas disponible");
-    }
-  };
+
   const searchIndex = JSON.parse(
     window.localStorage.getItem("searchProd") || "{}"
   );
@@ -304,14 +296,13 @@ const BodyPayer2 = ({ isRadioActive, handleRadioChange }) => {
                     to="/FindProduct"
                     variant="outline-secondary  w-100"
                     style={{ fontSize: "9px" }}
-                    onClick={handleSearchClick}
                   >
                     <Image
                       src="/Groupe 26249.svg"
                       className="rounded mx-auto d-block"
                       style={{ width: "20rpx", height: "12px" }}
                     />
-                    Rechercher produits
+                    Rechercher article
                   </Button>
                 </div>
               </div>
