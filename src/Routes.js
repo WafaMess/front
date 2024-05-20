@@ -13,11 +13,7 @@ import CodePostal from "./component/codepostal";
 import ModePaiement from "./component/modepaiement/ModePaiement";
 import NumTel from "./component/numtel/NumTel";
 import Payer2 from "./component/payer2/Payer2";
-
-import Payer3 from "./component/payer3/Payer3";
-
 import FindProduct from "./component/findproduct/FindProduct";
-
 import Impremente from "./component/parametrage/Impremente";
 import General from "./component/parametrage/General";
 import Design from "./component/parametrage/Design";
@@ -34,7 +30,6 @@ export default function MainRoutes() {
       <Route path="/Payer2" element={<Payer2 />} /> {/*2/15 */}
       <Route path="/interface" element={<Interface />} /> {/*3/15 */}
       <Route path="/Saisircod" element={<SaisirCode />} /> {/*4/15 */}
-      <Route path="/Payer3" element={<Payer3 />} /> {/*5/15 */}
       <Route path="/CompteFidelite" element={<CompteFidelite />} /> {/*6/15 */}
       <Route path="/ModeIden" element={<ModeIden />} /> {/*7/15 */}
       <Route path="/CarteFid" element={<CarteFid />} /> {/*8/15 */}
@@ -45,16 +40,7 @@ export default function MainRoutes() {
       <Route path="/SuivezIndica" element={<SuivezIndica />} /> {/*13/15 */}
       <Route path="/merci" element={<Merci />} /> {/*14/15 */}
       <Route path="/NumTel" element={<NumTel />} /> {/*15/15 */}
-      {/* <Route path="/Manager" element={<Manager />} /> 1/9 */}
-      {/*<Route path="/RecherProd" element={<RecherProd />} /> 2/9 */}
       <Route path="/FindProduct" element={<FindProduct />} />
-      {/*<Route path="/Promo" element={<Promo />} /> 4/9 */}
-      {/*<Route path="/SaisirManager" element={<SaisirManager />} /> 5/9 */}
-      {/*<Route path="/PaieManager" element={<PaieManager />} /> 6/9 */}
-      {/*<Route path="/modif" element={<Modif />} /> 8/9 */}
-      {/*<Route path="/ManagerPaie" element={<ManagerPaie />} /> 7/9 */}
-      {/*<Route path="/Montant" element={<Montant />} /> 9/9 */}
-      {/* Add more routes here */}
       <Route path="/login" element={<Login />} />
       <Route path="/modal" element={<Modal />} /> {/*9/9 */}
       <Route path="/impremente" element={<Impremente />} /> {/*9/9 */}
@@ -62,6 +48,16 @@ export default function MainRoutes() {
       <Route path="/option" element={<Options />} />
       <Route path="/design" element={<Design />} />
       <Route path="/parentcomponent" element={<ParentComponent />} />
+      {/* <Route path="/Manager" element={<Manager />} /> 1/9 */}
+      {/*<Route path="/RecherProd" element={<RecherProd />} /> 2/9 */}
+      {/* <Route path="/Payer3" element={<Payer3 />} /> 5/15 */}
+      {/*<Route path="/Promo" element={<Promo />} /> 4/9 */}
+      {/*<Route path="/SaisirManager" element={<SaisirManager />} /> 5/9 */}
+      {/*<Route path="/PaieManager" element={<PaieManager />} /> 6/9 */}
+      {/*<Route path="/modif" element={<Modif />} /> 8/9 */}
+      {/*<Route path="/ManagerPaie" element={<ManagerPaie />} /> 7/9 */}
+      {/*<Route path="/Montant" element={<Montant />} /> 9/9 */}
+      {/* Add more routes here */}
     </Routes>
   );
 }

@@ -29,6 +29,7 @@ export default function BodyFind() {
       if (response.ok) {
         const data = await response.json();
         setProductInfo(data);
+
         console.log(data);
         window.localStorage.setItem("searchProd", JSON.stringify(data));
       } else {

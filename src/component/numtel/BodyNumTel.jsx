@@ -32,16 +32,16 @@ export default function BodyNumTel() {
 
       if (response.ok) {
         if (data.status === "success") {
-          toast.success("Code Postal validée avec succès!");
+          toast.success("Numéro de téléphone validée avec succès!");
           navigate("/Solde");
         } else {
           toast.error(data.message);
         }
       } else {
-        toast.error(" numéro de telephone est incorrcte.");
+        toast.error(" Numéro de téléphone est incorrcte.");
       }
     } catch (error) {
-      toast.error("Erreur lors de la vérification du numéro de telephone.");
+      toast.error("Erreur lors de la vérification du Numéro de téléphone.");
     }
   };
   return (
