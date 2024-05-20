@@ -3,7 +3,7 @@ import Button from "react-bootstrap/Button";
 import Image from "react-bootstrap/Image";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "../Header";
-import Numero from "../numcartefid/Numero";
+import Numero from "./../../_components/Numero";
 import { useNavigate } from "react-router-dom";
 
 export default function BodyNumTel() {

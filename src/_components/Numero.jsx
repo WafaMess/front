@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./style.css";
+import "./../component/numcartefid/style.css";
 
 export default function Numero({ onValidate, setCardNumber }) {
   const [value, setValue] = useState("");

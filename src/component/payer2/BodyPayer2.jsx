@@ -205,6 +205,7 @@ const BodyPayer2 = ({ isRadioActive, handleRadioChange }) => {
                   }}
                 />
               </div>
+
               <div className="row mt-1 mb-1">
                 <div className="col-12">
                   <Button

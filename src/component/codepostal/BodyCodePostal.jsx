@@ -1,45 +1,46 @@
-import React from "react";
+import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button, Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import Calcule from "./Calcule";
+import Numero from "./../../_components/Numero";
 import "./style.css";
+import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
 
 export default function BodyCodePostal() {
-  // const [codePostal, setCodePostal] = useState("");
+  const [cardNumber, setCardNumber] = useState("");
+  const navigate = useNavigate();
+  React.useEffect(() => {}, [cardNumber]);
+  const validerPostal = async () => {
+    console.log("Code Postal soumis pour validation:", cardNumber);
+    try {
+      const response = await fetch(
+        "http://localhost:5000/verifier-codepostal",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ codePostal: cardNumber }),
+        }
+      );
+      const data = await response.json();
+      console.log(data);
 
-  // const handleConfirmClick = async () => {
-  //   if (!codePostal) {
-  //     console.error("Le code postal est vide.");
-  //     return;
-  //   }
-
-  //   try {
-  //     const response = await fetch(
-  //       "http://localhost:5000/enregistrer-code-postal",
-  //       {
-  //         method: "POST",
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //         },
-  //         body: JSON.stringify({ cpcl: codePostal }),
-  //       }
-  //     );
-
-  //     if (!response.ok) {
-  //       throw new Error(`Erreur HTTP: ${response.status}`);
-  //     }
-
-  //     const data = await response.json();
-  //     console.log(data.message);
-  //   } catch (error) {
-  //     console.error("Erreur lors de l'enregistrement du code postal:", error);
-  //   }
-  // };
-
-  // const handleChange = (e) => {
-  //   setCodePostal(e.target.value);
-  // };
+      if (response.ok) {
+        if (data.status === "success") {
+          toast.success("Code Postal validée avec succès!");
+          navigate("/ModePaiement ");
+        } else {
+          toast.error(data.message);
+        }
+      } else {
+        toast.error(" Code Postal est incorrcte.");
+      }
+    } catch (error) {
+      toast.error("Erreur lors de la vérification du Code Postal.");
+    }
+  };
 
   return (
     <div className="gris mt-3">
@@ -53,7 +54,10 @@ export default function BodyCodePostal() {
         </h1>
         <div className=" d-flex justify-content-center">
           {/* <Calcule value={codePostal} onChange={handleChange} /> */}
-          <Calcule />
+          <Numero
+            onValidate={(value) => setCardNumber(value)}
+            setCardNumber={setCardNumber}
+          />
         </div>
         <div className="d-flex justify-content-center mt-2">
           <Button
@@ -64,11 +68,8 @@ export default function BodyCodePostal() {
           >
             Ignorer
           </Button>
-          <Button
-            variant="dark"
-            className="butconf"
-            // onClick={handleConfirmClick}
-          >
+          <ToastContainer />
+          <Button variant="dark" className="butconf" onClick={validerPostal}>
             Confirmer
           </Button>
         </div>
