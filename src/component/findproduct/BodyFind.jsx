@@ -61,7 +61,7 @@ export default function BodyFind() {
               <p>Désignation: {productInfo.nompr}</p>
               <p>Prix Unitaire: {productInfo.prixl}</p>
               <p>
-                Quantité:{" "}
+                Quantité:
                 <input
                   type="number"
                   value={quantity}

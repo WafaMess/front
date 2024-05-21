@@ -31,9 +31,9 @@ const BodyPayer2 = () => {
     if (cods.map((x) => x.codebare).includes(ElIndexed.codebare) === false) {
       setCods([...cods, ElIndexed]);
     }
-
     console.log(ElIndexed);
   }, [searchIndex]);
+
   const [cods, setCods] = React.useState([]);
   const [productQte, setProductQte] = React.useState([]);
   useEffect(() => {
