@@ -6,13 +6,18 @@ import Numero from "./../../_components/Numero";
 import "./style.css";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
+//import { useSelector } from "react-redux";
 
 export default function BodyCodePostal() {
+  //const postalCodeRequired = useSelector((state) => state.options.postalCodeRequired );
+  // const postalCodeValidation = useSelector((state) => state.options.postalCodeValidation );
+
   const [cardNumber, setCardNumber] = useState("");
   const navigate = useNavigate();
   React.useEffect(() => {}, [cardNumber]);
   const validerPostal = async () => {
     // Vérifier si le champ du code postal est vide
+    // disabled={!postalCodeRequired}
     if (!cardNumber.trim()) {
       toast.error("Veuillez saisir un code postal.");
       return; // Arrêter l'exécution si le champ est vide

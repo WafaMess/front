@@ -52,17 +52,10 @@ export default function BodyModIden() {
             <Image src="/Groupe 26197.svg" className="rounded float-start " />
           </Link>
 
-          <Link to="/NumTel">
-            <Image
-              src="/Tracé 20267.svg"
-              className="rounded float-end "
-              disabled={!phoneNumberAuth}
-            />
+          <Link to="/NumTel" disabled={!phoneNumberAuth}>
+            <Image src="/Tracé 20267.svg" className="rounded float-end " />
           </Link>
         </div>
-
-        {/* <Image src='/cartebancaire.png'className='pt-3 mt-4 rounded mx-auto d-block me-5'/> */}
-        {/* <Image src='/mobile.png' className='pt-3 mt-4 rounded mx-auto d-block '/> */}
       </div>
 
       <div className="d-flex justify-content-center">
