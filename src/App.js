@@ -4,10 +4,7 @@ import MainRoutes from "./Routes";
 
 function App() {
   return (
-    <div
-      className="container-fluid"
-      // style={{ maxWidth: "60vw", maxHeight: "50vh", backgroundColor: "blue" }}
-    >
+    <div className="container-fluid">
       <MainRoutes />
     </div>
   );

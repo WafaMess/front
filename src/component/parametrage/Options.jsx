@@ -1,9 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { toggleOption } from "./optionsSlice";
 
 export default function Options() {
+  const dispatch = useDispatch();
+  const options = useSelector((state) => state.options);
+
+  const handleToggle = (optionName) => {
+    dispatch(toggleOption({ optionName }));
+  };
   return (
     <div className="card d-flex  " style={{ height: "90vh", width: "120vh" }}>
       <nav className="navbar navbar-dark bg-dark">
@@ -61,6 +69,8 @@ export default function Options() {
                         className="form-check-input"
                         type="checkbox"
                         id="flexSwitchCheckDefault"
+                        checked={options.loyaltyCardScan}
+                        onChange={() => handleToggle("loyaltyCardScan")}
                       />
                     </div>
                   </div>
@@ -70,13 +80,15 @@ export default function Options() {
                 <div className="col-12">
                   <div className="d-flex align-items">
                     <p className="fst-start" style={{ fontSize: "10px" }}>
-                      Authentification par Scan de code de la carte
+                      Authentification par N° de la carte fidélité
                     </p>
                     <div className="form-check form-switch ms-auto">
                       <input
                         className="form-check-input"
                         type="checkbox"
                         id="flexSwitchCheckDefault"
+                        checked={options.loyaltyCardCode}
+                        onChange={() => handleToggle("loyaltyCardCode")}
                       />
                     </div>
                   </div>
@@ -93,6 +105,8 @@ export default function Options() {
                         className="form-check-input"
                         type="checkbox"
                         id="flexSwitchCheckDefault"
+                        checked={options.phoneNumberAuth}
+                        onChange={() => handleToggle("phoneNumberAuth")}
                       />
                     </div>
                   </div>
@@ -120,6 +134,8 @@ export default function Options() {
                         className="form-check-input"
                         type="checkbox"
                         id="flexSwitchCheckDefault"
+                        checked={options.promoCardNumber}
+                        onChange={() => handleToggle("promoCardNumber")}
                       />
                     </div>
                   </div>
@@ -136,6 +152,8 @@ export default function Options() {
                         className="form-check-input"
                         type="checkbox"
                         id="flexSwitchCheckDefault"
+                        checked={options.promoCardScan}
+                        onChange={() => handleToggle("promoCardScan")}
                       />
                     </div>
                   </div>
@@ -162,6 +180,8 @@ export default function Options() {
                         className="form-check-input"
                         type="checkbox"
                         id="flexSwitchCheckDefault"
+                        checked={options.postalCodeRequired}
+                        onChange={() => handleToggle("postalCodeRequired")}
                       />
                     </div>
                   </div>
@@ -178,6 +198,8 @@ export default function Options() {
                         className="form-check-input"
                         type="checkbox"
                         id="flexSwitchCheckDefault"
+                        checked={options.postalCodeValidation}
+                        onChange={() => handleToggle("postalCodeValidation")}
                       />
                     </div>
                   </div>
@@ -202,6 +224,8 @@ export default function Options() {
                         className="form-check-input"
                         type="checkbox"
                         id="flexSwitchCheckDefault"
+                        checked={options.articleSearch}
+                        onChange={() => handleToggle("articleSearch")}
                       />
                     </div>
                   </div>
@@ -215,7 +239,9 @@ export default function Options() {
         className="d-grid gap-2 d-md-flex justify-content-md-end "
         style={{ marginTop: "40px" }}
       >
-        <Button variant="outline-secondary">Maintenance</Button>
+        <Button as={Link} to="/Payer2" variant="outline-secondary">
+          Maintenance
+        </Button>
         <Button variant="outline-danger">Réduire Borne Sco</Button>
         <Button as={Link} to="/login" variant="danger">
           Fermer Borne Sco

@@ -16,23 +16,25 @@ import Productfinder from "../../_components/apis/Productfinder";
 const BodyPayer2 = () => {
   const [selectedImage, setSelectedImage] = React.useState(null); // Ajout d'un nouvel état pour l'URL de l'image
   // Utilisez useSelector pour accéder à l'état du panier
-  const cart = useSelector((state) => state.cart);
+  //const cart = useSelector((state) => state.cart);
+  const articleSearch = useSelector((state) => state.options.articleSearch);
+  const promoCardNumber = useSelector((state) => state.options.promoCardNumber);
 
-  const searchIndex = JSON.parse(
-    window.localStorage.getItem("searchProd") || "{}"
-  );
+  // const searchIndex = JSON.parse(
+  //   window.localStorage.getItem("searchProd") || "{}"
+  // );
 
-  React.useEffect(() => {
-    //setCods([...searchIndex]);
-    console.log({ searchIndex });
-    const ElIndexed = JSON.parse(
-      window.localStorage.getItem("searchProd") || "{}"
-    );
-    if (cods.map((x) => x.codebare).includes(ElIndexed.codebare) === false) {
-      setCods([...cods, ElIndexed]);
-    }
-    console.log(ElIndexed);
-  }, [searchIndex]);
+  // React.useEffect(() => {
+  //   //setCods([...searchIndex]);
+  //   console.log({ searchIndex });
+  //   const ElIndexed = JSON.parse(
+  //     window.localStorage.getItem("searchProd") || "{}"
+  //   );
+  //   if (cods.map((x) => x.codebare).includes(ElIndexed.codebare) === false) {
+  //     setCods([...cods, ElIndexed]);
+  //   }
+  //   console.log(ElIndexed);
+  // }, [searchIndex]);
 
   const [cods, setCods] = React.useState([]);
   const [productQte, setProductQte] = React.useState([]);
@@ -250,6 +252,7 @@ const BodyPayer2 = () => {
                     to="/interface"
                     variant="outline-secondary  w-100"
                     style={{ fontSize: "9px" }}
+                    disabled={!promoCardNumber}
                   >
                     <Image
                       src="/offer.svg"
@@ -296,6 +299,7 @@ const BodyPayer2 = () => {
                     to="/FindProduct"
                     variant="outline-secondary  w-100"
                     style={{ fontSize: "9px" }}
+                    disabled={!articleSearch}
                   >
                     <Image
                       src="/Groupe 26249.svg"
@@ -328,7 +332,7 @@ const BodyPayer2 = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    {cart.items && cart.items.length > 0 ? (
+                    {/* {cart.items && cart.items.length > 0 ? (
                       cart.items.map((item) => (
                         <tr key={item.id}>
                           <td>{item.nompr}</td>
@@ -341,7 +345,7 @@ const BodyPayer2 = () => {
                       <tr>
                         <td colSpan="4">Aucun produit dans le panier.</td>
                       </tr>
-                    )}
+                    )} */}
                     {cods.map((cod, index) => {
                       // Ajoutez une classe conditionnelle pour l'élément sélectionné
                       const isSelected = selectedBarcode === cod.codebare;

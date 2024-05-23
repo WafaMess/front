@@ -3,10 +3,14 @@ import Button from "react-bootstrap/Button";
 import Image from "react-bootstrap/Image";
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-
 import Header from "../Header";
+import { useSelector } from "react-redux";
 
 export default function BodyModIden() {
+  const loyaltyCardNumber = useSelector(
+    (state) => state.options.loyaltyCardNumber
+  );
+  const phoneNumberAuth = useSelector((state) => state.options.phoneNumberAuth);
   return (
     <div className="border">
       <Header />
@@ -44,12 +48,16 @@ export default function BodyModIden() {
 
       <div className="d-flex justify-content-center">
         <div className="mb-5 mt-4 d-flex align-items-center gap-4 ">
-          <Link to="/CarteFid">
+          <Link to="/CarteFid" disabled={!loyaltyCardNumber}>
             <Image src="/Groupe 26197.svg" className="rounded float-start " />
           </Link>
 
           <Link to="/NumTel">
-            <Image src="/Tracé 20267.svg" className="rounded float-end " />
+            <Image
+              src="/Tracé 20267.svg"
+              className="rounded float-end "
+              disabled={!phoneNumberAuth}
+            />
           </Link>
         </div>
 
