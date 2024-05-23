@@ -65,7 +65,10 @@ export default function BodyFind() {
                 <input
                   type="number"
                   value={quantity}
-                  onChange={(e) => setQuantity(e.target.value)}
+                  onChange={(e) => {
+                    console.log(e);
+                    setQuantity(e.target.value);
+                  }}
                 />
               </p>
               <div className="d-flex justify-content-center">

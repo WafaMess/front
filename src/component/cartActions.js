@@ -11,6 +11,7 @@ const initialState = {
   cart: [],
 };
 const cartReducer = (state = initialState, action) => {
+  console.log("action", action);
   switch (action.type) {
     case "ADD_TO_CART":
       // Logique pour ajouter au panier
