@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+
+import { useLocation, Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useTotal } from "./../TotalContext";
-import Image from "react-bootstrap/Image";
-import { Link } from "react-router-dom";
+import { Image, Button, Modal } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+
 import Header from "../Header";
 
 export default function BodySolde() {
@@ -12,6 +13,14 @@ export default function BodySolde() {
   const location = useLocation();
   const { cardNumber } = location.state || {};
   const { totalCommande } = useTotal();
+  const navigate = useNavigate();
+  const [showPopup, setShowPopup] = useState(false);
+
+  const handleNavigate = () => {
+    setShowPopup(false);
+    navigate("/CodePostal");
+  };
+
   useEffect(() => {
     if (cardNumber) {
       const fetchSolde = async () => {
@@ -43,6 +52,11 @@ export default function BodySolde() {
       fetchSolde();
     }
   }, [cardNumber]);
+
+  const remainingAmount =
+    solde !== null && totalCommande !== undefined
+      ? (solde - totalCommande).toFixed(2)
+      : "0.00";
   return (
     <div className="border">
       <Header />
@@ -93,11 +107,32 @@ export default function BodySolde() {
             <Image src="/Groupe 26541.svg" className="rounded float-start " />
           </Link>
 
-          <Link to="/CodePostal">
-            <Image src="/Groupe 26542.svg" className="rounded float-end " />
-          </Link>
+          <Image
+            src="/Groupe 26542.svg"
+            className="rounded float-end "
+            alt="Naviguer"
+            onClick={() => setShowPopup(true)}
+          />
         </div>
       </div>
+      <Modal show={showPopup} onHide={() => setShowPopup(false)}>
+        <Modal.Header closeButton>
+          <Modal.Title style={{ fontWeight: "bold", textAlign: "center" }}>
+            Montant à Payer
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <p>Votre montant à payer est : {remainingAmount}</p>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={() => setShowPopup(false)}>
+            Fermer
+          </Button>
+          <Button variant="primary" onClick={handleNavigate}>
+            Continuer
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 }
