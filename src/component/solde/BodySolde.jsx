@@ -1,11 +1,48 @@
-import React from "react";
-
+import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
+import { toast } from "react-toastify";
+import { useTotal } from "./../TotalContext";
 import Image from "react-bootstrap/Image";
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "../Header";
 
 export default function BodySolde() {
+  const [solde, setSolde] = useState(null);
+  const location = useLocation();
+  const { cardNumber } = location.state || {};
+  const { totalCommande } = useTotal();
+  useEffect(() => {
+    if (cardNumber) {
+      const fetchSolde = async () => {
+        try {
+          const response = await fetch(
+            "http://localhost:5000/recuperer-solde",
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({ numeroCarte: cardNumber }),
+            }
+          );
+          const data = await response.json();
+          if (response.ok) {
+            if (data.status === "success") {
+              setSolde(data.solde);
+            } else {
+              toast.error(data.message);
+            }
+          } else {
+            toast.error("Erreur lors de la récupération du solde.");
+          }
+        } catch (error) {
+          toast.error("Erreur du serveur lors de la récupération du solde.");
+        }
+      };
+      fetchSolde();
+    }
+  }, [cardNumber]);
   return (
     <div className="border">
       <Header />
@@ -36,7 +73,7 @@ export default function BodySolde() {
           <b>Votre solde</b>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <b>5.50£</b>
+          <b>{solde !== null ? `${solde}` : "Chargement..."}</b>
         </span>
         <br />
 
@@ -44,7 +81,9 @@ export default function BodySolde() {
         <span>
           Total
           commande&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;105.50£
+          {totalCommande !== undefined
+            ? `${totalCommande.toFixed(2)}£`
+            : "0.00£"}
         </span>
         <br />
       </div>

@@ -34,7 +34,7 @@ export default function BodyNumCart() {
       if (response.ok) {
         if (data.status === "success") {
           toast.success("Carte validée avec succès!");
-          navigate("/Solde");
+          navigate("/Solde", { state: { cardNumber: cardNumber } });
         } else {
           toast.error(data.message);
         }

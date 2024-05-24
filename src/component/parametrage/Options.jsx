@@ -87,8 +87,8 @@ export default function Options() {
                         className="form-check-input"
                         type="checkbox"
                         id="flexSwitchCheckDefault"
-                        checked={options.loyaltyCardCode}
-                        onChange={() => handleToggle("loyaltyCardCode")}
+                        checked={options.loyaltyCardNumber}
+                        onChange={() => handleToggle("loyaltyCardNumber")}
                       />
                     </div>
                   </div>
@@ -242,7 +242,9 @@ export default function Options() {
         <Button as={Link} to="/Payer2" variant="outline-secondary">
           Maintenance
         </Button>
-        <Button variant="outline-danger">Réduire Borne Sco</Button>
+        <Button as={Link} to="/ModeIden" variant="outline-danger">
+          Réduire Borne Sco
+        </Button>
         <Button as={Link} to="/login" variant="danger">
           Fermer Borne Sco
         </Button>

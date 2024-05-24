@@ -63,13 +63,6 @@ export default function Design() {
                       value="#563d7c"
                       title="Choose your color"
                     ></input>
-                    {/* <label
-                      for="exampleColorInput"
-                      className="form-label"
-                      style={{ fontSize: "13px" }}
-                    >
-                      Modifier
-                    </label> */}
                   </div>
                 </div>
               </div>

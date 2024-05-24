@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Image, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Table from "react-bootstrap/Table";
 import Header from "../Header";
 import Popup from "reactjs-popup";
@@ -12,8 +12,10 @@ import BarcodeScanner from "../../_components/BarcodeScanner";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Productfinder from "../../_components/apis/Productfinder";
-
+import { useTotal } from "./../TotalContext";
 const BodyPayer2 = () => {
+  const navigate = useNavigate();
+  const { setTotalCommande } = useTotal();
   const [selectedImage, setSelectedImage] = React.useState(null); // Ajout d'un nouvel état pour l'URL de l'image
   // Utilisez useSelector pour accéder à l'état du panier
   //const cart = useSelector((state) => state.cart);
@@ -144,6 +146,11 @@ const BodyPayer2 = () => {
       const prix = cod.prixl || 0;
       return total + qte * prix;
     }, 0);
+  };
+  const handlePayerClick = () => {
+    const total = calculateTotal();
+    setTotalCommande(total);
+    navigate("/CompteFidelite", { state: { total } });
   };
   //Dans cet exemple, la fonction resetCommand est appelée lorsque le bouton “Abandonner” est cliqué. Cette fonction met à jour les états cods et productQte pour les vider, ce qui aura pour effet de supprimer toutes les informations de la commande actuelle. Assurez-vous que le chemin vers l’image dans src est correct et que l’image existe à cet emplacement.
   // Fonction pour réinitialiser la commande
@@ -421,8 +428,7 @@ const BodyPayer2 = () => {
             <div className="col-12">
               <ToastContainer />
               <Button
-                as={Link}
-                to="/CompteFidelite"
+                onClick={handlePayerClick}
                 variant="dark pt-2 mb-2 "
                 className="col-12 text-center"
                 style={{ width: "20rem", fontSize: "17px" }}
